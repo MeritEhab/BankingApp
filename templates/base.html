@@ -6,7 +6,6 @@
 </head>
 <body>
   <header>
-    <h1>Login</h1>
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
       <a href='/auth/logout'>logout</a>

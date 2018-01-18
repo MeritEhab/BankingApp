@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'localflavor',
     'users',
+    'bank_account',
 ]
-
+SITE_ID = 1
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -128,3 +129,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_REDIRECT_URL = "/"

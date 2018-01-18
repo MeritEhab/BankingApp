@@ -1,3 +1,5 @@
+from bank_account.models import BankAccount
+
 from django.contrib.auth import authenticate, login
 
 from django.shortcuts import redirect, render
@@ -25,6 +27,8 @@ class Registration(View):
             iban = form.cleaned_data['iban']
             user.set_password(password)
             user.save()
+            bank_account = BankAccount.objects.create(user=user, iban=iban)
+            bank_account.save()
 
             user = authenticate(username=username, password=password)
 
