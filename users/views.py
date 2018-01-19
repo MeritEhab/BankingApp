@@ -1,4 +1,4 @@
-from bank_account.models import BankAccount
+from bank_account.models import BankAccountUser
 
 from django.contrib.auth import authenticate, login
 
@@ -21,15 +21,11 @@ class Registration(View):
         if form.is_valid():
             user = form.save(commit=False)
             username = form.cleaned_data['username']
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
             password = form.cleaned_data['password']
-            iban = form.cleaned_data['iban']
             user.set_password(password)
             user.save()
-            bank_account = BankAccount.objects.create(user=user, iban=iban)
-            bank_account.save()
-
+            user.creator = user
+            user.save()
             user = authenticate(username=username, password=password)
 
             if user is not None:

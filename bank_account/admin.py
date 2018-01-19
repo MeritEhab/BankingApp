@@ -1,5 +1,5 @@
-from bank_account.models import BankAccount
+from bank_account.models import BankAccountUser
 
 from django.contrib import admin
 
-admin.site.register(BankAccount)
+admin.site.register(BankAccountUser)
