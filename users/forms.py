@@ -14,3 +14,13 @@ class RegistrationForm(forms.ModelForm):
     class Meta:
         model = BankAccountUser
         fields = ['username', 'first_name', 'last_name', 'password', 'iban']
+
+
+class UserEditForm(forms.ModelForm):
+    iban = IBANFormField()
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+
+    class Meta:
+        model = BankAccountUser
+        fields = ['username', 'first_name', 'last_name', 'iban']

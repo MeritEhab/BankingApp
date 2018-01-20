@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'localflavor',
     'users',
     'bank_account',
-    #'social.apps.django_app.default',
     'social_django',
 ]
 SITE_ID = 1
@@ -141,5 +140,5 @@ LOGIN_REDIRECT_URL = "/"
 
 AUTH_USER_MODEL = 'bank_account.BankAccountUser'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '868030054847-4u5fbf7o60u25031cse79v1f0uvn1kdf.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '1amlfaoM0maZICfsF_Vqi4s4'
