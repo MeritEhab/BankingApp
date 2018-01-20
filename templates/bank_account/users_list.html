@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Users List{% endblock %}
+
+{% block content %}
+{% if object_list %}
+	<ul>
+		{%for user in object_list%}
+			{% if user == request.user%}
+				<li><a href="/users/{{user.id }}/">Me</a></li>
+			{% else %}
+				<li><a href="/users/{{user.id }}/">{{user.first_name}} {{user.last_name}}</a></li>
+			{% endif %}
+		{%endfor%}
+	</ul>
+{% else %}
+	<h1>You Didn't Add any users yet </h1>
+	<form action="/users/add" >
+	    <br><br>
+	    <input type="submit" value="Add a new user">
+	</form>
+{% endif %}
+<form action="/" >
+	    <br><br>
+	    <input type="submit" value="Back Home">
+	</form>
+{% endblock %}

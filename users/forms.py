@@ -1,5 +1,6 @@
+from bank_account.models import BankAccountUser
+
 from django import forms
-from django.contrib.auth.models import User
 
 from localflavor.generic.forms import IBANFormField
 
@@ -11,5 +12,5 @@ class RegistrationForm(forms.ModelForm):
     last_name = forms.CharField(required=True)
 
     class Meta:
-        model = User
-        fields = ['username', 'first_name', 'last_name', 'password']
+        model = BankAccountUser
+        fields = ['username', 'first_name', 'last_name', 'password', 'iban']
