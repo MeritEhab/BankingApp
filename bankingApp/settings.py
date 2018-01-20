@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'localflavor',
     'users',
     'bank_account',
+    #'social.apps.django_app.default',
+    'social_django',
 ]
 SITE_ID = 1
 MIDDLEWARE_CLASSES = [
@@ -67,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
 
             ],
         },
@@ -76,6 +80,9 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
 
 )
 WSGI_APPLICATION = 'bankingApp.wsgi.application'
@@ -133,3 +140,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL = "/"
 
 AUTH_USER_MODEL = 'bank_account.BankAccountUser'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
