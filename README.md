@@ -36,6 +36,7 @@ This application enables admin users to login with google account, in order to d
 - Now, Copy the Client ID and Client Secret Under settings.py
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY =''  #Paste CLient Key
+
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '' #Paste Secret Key
 
 
