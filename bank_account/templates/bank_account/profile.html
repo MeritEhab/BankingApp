@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                        <h2>
+                            {{object.first_name}}'s Profile
+                        </h2>
+                        <p>
+                            <label>Username:</label> &nbsp;{{object.username}}<br>
+							<label>First Name: </label>&nbsp;{{object.first_name}}<br>
+							<label>Last Name: </label>&nbsp;{{object.last_name}}<br>
+							<label>IBAN: </label>&nbsp;{{object.iban}}<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	<div class="container">
+	{% if user.is_admin or user.is_superuser%}
+		<form action="edit/" >
+			    <br><br>
+			    <button type="submit" class="btn btn-primary">Edit User</button>
+
+		</form>
+
+		<form action="delete/" >
+			    <br><br>
+			    <button type="submit" class="btn btn-danger">Delete User</button>
+		</form>
+	{% endif %}
+	<form action="/" >
+		    <br><br>
+		    <button type="submit" class="btn btn-primary">Back Home</button>
+	</form>
+	</div>
+
+{% endblock %}
+

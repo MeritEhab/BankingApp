@@ -1,0 +1,16 @@
+h2  {
+    color: #0066ff;
+    font-family: 'Lobster';
+
+}
+body {
+  background: white url("images/bk.jpg")
+}
+
+.navbar{
+  border-radius: 0;
+}
+.navbar-brand{
+  font-family: 'Satisfy', 'cursive';
+  font-size: 30px;
+}

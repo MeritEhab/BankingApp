@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Users List{% endblock %}
+
+{% block content %}
+{% if object_list %}
+	<div class="container">
+		<div class="list-group">
+			{%for user in object_list%}
+				{% if user == request.user%}
+					<a href="/users/{{user.id }}/" class="list-group-item">Me</a>
+				{% else %}
+					<a href="/users/{{user.id }}/" class="list-group-item">{{user.first_name}} {{user.last_name}}</a>
+				{% endif %}
+			{%endfor%}
+		</div>
+	
+{% else %}
+	<h1>You Didn't Add any users yet </h1>
+{% endif %}
+<form action="/" >
+		    <br><br>
+		    <button type="submit" class="btn btn-primary">Back Home</button>
+
+</form>
+</div>
+{% endblock %}
