@@ -27,13 +27,13 @@
         </div>
       <div class="collapse navbar-collapse" id="topNavBar">
         <ul class="nav navbar-nav">
-          <li class="">
+          <li class="{% block profile_active %}{% endblock %}">
             <a href="/users/{{user.id}}">
               <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp; Profile
             </a>
           </li>
           {% if user.is_admin or user.is_superuser %}
-          <li class="">
+          <li class="{% block users_list_active %}{% endblock %}">
             <a href="{% url 'bank_account:list_user' %}">
               <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>&nbsp; Users
             </a>
@@ -42,14 +42,14 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {% if user.is_admin or user.is_superuser %}
-          <li class="">
+          <li class="{% block add_user_active %}{% endblock %}">
             <a href="{% url 'bank_account:create_user' %}">
               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add User
             </a>
           </li>
           {% endif %}
           <li class="">
-            <a href="/auth/logout">
+            <a href="/auth/logout?next=/">
               <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Logout
             </a>
           </li>
