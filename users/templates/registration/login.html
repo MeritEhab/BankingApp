@@ -1,13 +1,10 @@
-{% extends 'bank_account_base.html' %}
+{% extends 'user_base.html' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
 <div class="container">
-
-	{% if user.is_admin or user.is_superuser%}
-	<h2>Edit User</h2>
-
+	<h2>Login</h2>
 	<form class="form-horizontal" method="post">{% csrf_token %}
 	    <fieldset>
 	        {% for field in form %}
@@ -34,20 +31,15 @@
 	    </fieldset>
 	    <div class="form-actions">
 	    	<br><br>
-	        <button type="submit" class="btn btn-primary" >Submit</button>
+	        <button type="submit" class="btn btn-primary" >Login</button>
 	    </div>
+
 	</form>
-{% else %}
-		<center><h1>You Have no permission to this page </h1></center>
-		<center>
-			<form action="/" >
-		    <br><br>
-		    <button type="submit" class="btn btn-primary">Back Home</button>
-
-			</form>
-		</center>
-
-	{% endif %}
+	<form action="{% url 'social:begin' 'google-oauth2' %}">
+	<br><br>
+    <button type="submit" class="btn btn-danger"> <i class="fa fa-google-plus" aria-hidden="true"></i> | Login With G+ </button>
+</form>
 </div>
+
 
 {% endblock %}
