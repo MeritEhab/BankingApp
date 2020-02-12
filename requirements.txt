@@ -8,7 +8,7 @@ cryptography==2.1.4
 curtsies==0.2.11
 Cython==0.27.3
 decorator==4.2.1
-Django==1.11
+Django==1.11.28
 django-appconf==1.0.2
 django-localflavor==2.0
 enum34==1.1.6
